@@ -3,6 +3,10 @@
 ## Overview
 The **Food Waste Management System** is an innovative web application aimed at helping organizations efficiently manage and reduce food waste. Designed for restaurants, grocery stores, and other food-related businesses, this platform enables users to track food inventory, monitor expiration dates, and minimize waste through effective optimization techniques.
 
+## Screenshots
+![1 2](https://github.com/user-attachments/assets/77e37019-bd91-43ca-80d9-0c5396b0ca4b)
+![1 3](https://github.com/user-attachments/assets/064f52b1-a74a-467e-ada5-0d5ea6f30414)
+
 ## Features
 - **Inventory Management**: 
   - Effortlessly track food items, including quantities and expiration dates, to prevent waste.
@@ -50,9 +54,7 @@ npm install
 npm start
 \`\`\`
 
-## Screenshots
-![1 2](https://github.com/user-attachments/assets/77e37019-bd91-43ca-80d9-0c5396b0ca4b)
-![1 3](https://github.com/user-attachments/assets/064f52b1-a74a-467e-ada5-0d5ea6f30414)
+
 
 
 *Example of the main dashboard: Manage your food inventory efficiently.*
