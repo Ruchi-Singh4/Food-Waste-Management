@@ -1,4 +1,4 @@
-** Food Waste Management System
+** Food Waste Management System **
 
 ## Overview
 The **Food Waste Management System** is an innovative web application aimed at helping organizations efficiently manage and reduce food waste. Designed for restaurants, grocery stores, and other food-related businesses, this platform enables users to track food inventory, monitor expiration dates, and minimize waste through effective optimization techniques.
