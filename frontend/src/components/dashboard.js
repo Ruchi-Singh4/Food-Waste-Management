@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
+import API_BASE_URL from "../config/api"
 
 import {
   Card,
@@ -29,7 +30,7 @@ const Dashboard = () => {
   const fetchFoodDonationRequests = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/food-donation-requests"
+        `${API_BASE_URL}/food-donation-requests`
       )
       setFoodDonationRequests(response.data)
     } catch (error) {
@@ -65,7 +66,7 @@ const Dashboard = () => {
   const handleCreateRequestInsideModal = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/create-donation-request",
+        `${API_BASE_URL}/create-donation-request`,
         {
           ...newRequest,
           status: "pending",
@@ -86,7 +87,7 @@ const Dashboard = () => {
   const handleDonate = async (requestId, requestDetails) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/check-donation-acceptance/${requestId}`
+        `${API_BASE_URL}/check-donation-acceptance/${requestId}`
       )
 
       if (
@@ -109,7 +110,7 @@ const Dashboard = () => {
     try {
       if (window.confirm("Do you want to delete this request?")) {
         await axios.delete(
-          `http://localhost:5000/delete-donation-request/${requestId}`
+          `${API_BASE_URL}/delete-donation-request/${requestId}`
         )
         fetchFoodDonationRequests()
       }
@@ -123,7 +124,7 @@ const Dashboard = () => {
       if (window.confirm("Mark this request as fulfilled?")) {
         // Make API request to update request status to "fulfilled"
         await axios.put(
-          `http://localhost:5000/fulfill-donation-request/${requestId}`
+          `${API_BASE_URL}/fulfill-donation-request/${requestId}`
         )
         fetchFoodDonationRequests()
       }

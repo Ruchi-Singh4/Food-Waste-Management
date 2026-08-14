@@ -47,7 +47,7 @@
 //       }
 
 //       // Make a GET request to the server to fetch monthly quantity purchased data
-//       const response = await axios.get("http://localhost:5000/inventory", {
+//       const response = await axios.get(`${API_BASE_URL}/inventory`, {
 //         headers: {
 //           Authorization: token,
 //         },
@@ -170,6 +170,7 @@
 
 import React, { useContext, useEffect, useState } from "react"
 import axios from "axios"
+import API_BASE_URL from "../config/api"
 import { AuthContext } from "../AuthContext"
 import { Typography } from "@mui/material"
 import { Bar } from "react-chartjs-2"
@@ -211,7 +212,7 @@ const MonthlyQuantity = () => {
         throw new Error("No token found")
       }
 
-      const response = await axios.get("http://localhost:5000/inventory", {
+      const response = await axios.get(`${API_BASE_URL}/inventory`, {
         headers: {
           Authorization: token,
         },

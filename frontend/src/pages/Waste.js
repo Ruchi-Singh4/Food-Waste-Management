@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react"
 import axios from "axios"
+import API_BASE_URL from "../config/api"
 import { AuthContext } from "../AuthContext"
 import { Typography } from "@mui/material"
 
@@ -37,7 +38,7 @@ const Waste = () => {
 
       // Make a POST request to the server to add waste data
       const response = await axios.post(
-        "http://localhost:5000/waste",
+        `${API_BASE_URL}/waste`,
         FoodWasteData,
         {
           headers: {

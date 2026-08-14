@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
+import API_BASE_URL from "../config/api"
 import { useNavigate } from "react-router-dom"
 import { Link as ScrollLink } from "react-scroll"
 
@@ -55,7 +56,7 @@ const SignUp = () => {
     try {
       // API call for household sign-up
       const response = await axios.post(
-        "http://localhost:5000/signup",
+        `${API_BASE_URL}/signup`,
         userData
       )
 
@@ -113,7 +114,7 @@ const SignUp = () => {
     try {
       // API call for business sign-up
       const response = await axios.post(
-        "http://localhost:5000/signup",
+        `${API_BASE_URL}/signup`,
         businessData
       )
 

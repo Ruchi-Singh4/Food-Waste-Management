@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import axios from "axios"
+import API_BASE_URL from "../config/api"
 import { AuthContext } from "../AuthContext"
 import { Typography } from "@mui/material"
 import { Bar } from "react-chartjs-2"
@@ -47,7 +48,7 @@ const MonthlyWaste = () => {
       }
 
       // Make a GET request to the server to fetch monthly waste data
-      const response = await axios.get("http://localhost:5000/waste", {
+      const response = await axios.get(`${API_BASE_URL}/waste`, {
         headers: {
           Authorization: token,
         },

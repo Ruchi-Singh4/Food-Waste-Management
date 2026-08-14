@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../AuthContext"
 import L from "leaflet"
 import axios from "axios"
+import API_BASE_URL from "../config/api"
 import { useLocation, useParams, useNavigate } from "react-router-dom"
 import MenuItem from "@mui/material/MenuItem"
 import { Modal, Box, Paper, Typography, TextField, Button } from "@mui/material"
@@ -42,7 +43,7 @@ const Donation = () => {
           throw new Error("No token found")
         }
 
-        const response = await axios.get("http://localhost:5000/inventory", {
+        const response = await axios.get(`${API_BASE_URL}/inventory`, {
           headers: {
             Authorization: token,
           },
@@ -96,7 +97,7 @@ const Donation = () => {
 
       // Make an API request to submit donation data
       const response = await axios.post(
-        "http://localhost:5000/donate",
+        `${API_BASE_URL}/donate`,
         {
           ...donationData,
           // If a selected item exists, add it to the request
@@ -116,7 +117,7 @@ const Donation = () => {
       if (requestId) {
         // You need to make an API request to update the request status
         await axios.put(
-          `http://localhost:5000/fulfill-donation-request/${data.requestId}`
+          `${API_BASE_URL}/fulfill-donation-request/${data.requestId}`
         )
       }
 

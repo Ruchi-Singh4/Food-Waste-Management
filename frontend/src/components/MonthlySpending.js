@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import axios from "axios"
+import API_BASE_URL from "../config/api"
 import { AuthContext } from "../AuthContext"
 import { Typography } from "@mui/material"
 import { Line } from "react-chartjs-2"
@@ -66,7 +67,7 @@ const MonthlySpending = () => {
       }
 
       // Make a GET request to the server to fetch monthly spending data
-      const response = await axios.get("http://localhost:5000/inventory", {
+      const response = await axios.get(`${API_BASE_URL}/inventory`, {
         headers: {
           Authorization: token,
         },

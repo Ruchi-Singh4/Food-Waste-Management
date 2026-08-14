@@ -52,7 +52,7 @@
 //       }
 
 //       // Make a GET request to the server to fetch monthly donation data
-//       const response = await axios.get("http://localhost:5000/donation", {
+//       const response = await axios.get(`${API_BASE_URL}/donation`, {
 //         headers: {
 //           Authorization: token,
 //         },
@@ -203,6 +203,7 @@
 // export default MonthlyDonation
 import React, { useContext, useEffect, useState } from "react"
 import axios from "axios"
+import API_BASE_URL from "../config/api"
 import { AuthContext } from "../AuthContext"
 import { Typography } from "@mui/material"
 import { Doughnut } from "react-chartjs-2"
@@ -246,7 +247,7 @@ const MonthlyDonation = () => {
         throw new Error("No token found")
       }
 
-      const response = await axios.get("http://localhost:5000/donation", {
+      const response = await axios.get(`${API_BASE_URL}/donation`, {
         headers: {
           Authorization: token,
         },

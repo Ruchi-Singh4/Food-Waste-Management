@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import axios from "axios"
+import API_BASE_URL from "../config/api"
 import { AuthContext } from "../AuthContext"
 import { Typography } from "@mui/material"
 
@@ -29,7 +30,7 @@ const Inventory = () => {
         throw new Error("No token found")
       }
 
-      const response = await axios.get("http://localhost:5000/inventory", {
+      const response = await axios.get(`${API_BASE_URL}/inventory`, {
         headers: {
           Authorization: token,
         },
@@ -79,7 +80,7 @@ const Inventory = () => {
         throw new Error("No token found")
       }
 
-      await axios.post("http://localhost:5000/inventory", newItem, {
+      await axios.post(`${API_BASE_URL}/inventory`, newItem, {
         headers: {
           Authorization: token,
         },
@@ -106,7 +107,7 @@ const Inventory = () => {
       }
 
       await axios.put(
-        `http://localhost:5000/inventory/${itemId}`,
+        `${API_BASE_URL}/inventory/${itemId}`,
         { consumed },
         {
           headers: {
@@ -129,7 +130,7 @@ const Inventory = () => {
         throw new Error("No token found")
       }
 
-      await axios.delete(`http://localhost:5000/inventory/${itemId}`, {
+      await axios.delete(`${API_BASE_URL}/inventory/${itemId}`, {
         headers: {
           Authorization: token,
         },

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react"
 import axios from "axios"
+import API_BASE_URL from "../config/api"
 import { Button } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
@@ -29,7 +30,7 @@ const Login = () => {
 
     try {
       // Send a POST request to the login endpoint with user data
-      const response = await axios.post("http://localhost:5000/login", userData)
+      const response = await axios.post(`${API_BASE_URL}/login`, userData)
       const data = response.data
 
       // Assuming login was successful and received a token in the response
