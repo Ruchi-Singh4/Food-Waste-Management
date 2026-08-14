@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const User = require("../models/User")
 const { JWT_SECRET } = require("../config/env")
@@ -33,8 +33,11 @@ const signup = (req, res) => {
         if (err.code === 11000) {
           res.status(400).json({ error: "Email already exists" })
         } else {
-          console.log(err)
-          res.status(500).json({ error: "Failed to save user" })
+          console.error("Signup save error:", err)
+          res.status(500).json({
+            error: "Failed to save user",
+            details: err.message,
+          })
         }
       })
   })
